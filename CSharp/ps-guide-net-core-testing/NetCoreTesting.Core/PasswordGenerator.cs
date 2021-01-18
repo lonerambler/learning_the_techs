@@ -14,6 +14,11 @@ namespace NetCoreTesting.Core
 
         public string Generate()
         {
+            if(MinLength < 0)
+            {
+                throw new ArgumentOutOfRangeException("MinLength", "Password length cannot be negative");
+            }
+
             var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             chars += chars.ToLower();
             chars += "0123456789";
